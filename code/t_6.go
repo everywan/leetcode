@@ -11,36 +11,29 @@ func main(){
 	fmt.Println(convert(s,numRows))
 }
 
+// 借助方向变量比自己去判断省很多事, 代码也更清晰
 func convert(s string, numRows int) string {
 	sLen := len(s)
 	if sLen<=numRows || numRows==1{
 		return s
 	}
-	n:=numRows
-	sessionLen := int(math.Ceil( float64(sLen)/float64(2*n-2) ))
-	var rs = make([]byte,sessionLen*2*(n-1))
-	for i:=0;i<sLen;i=i+2*n-2{
-		t:= i/(2*n-2)
-		rs[t]=s[i]
-		for j:=1;j<2*n-2;j++{
-			if (i+j)>=sLen{
-				break
-			}
-			if j < n-1 {
-				rs[2*t+sessionLen*(j*2-1)]=s[j+i]
-			}else if j==n-1{
-				rs[t+sessionLen*(j*2-1)]=s[j+i]
-			}else{
-				rs[2*t+sessionLen*(4*n-5-2*j)+1]=s[j+i]
-			}
+	var arr = make([]string,numRows)
+	goDowning := false
+	pos := 0
+	for _,v := range s{
+		arr[pos] = arr[pos] + string(v)
+		if pos==0 || pos==numRows-1{
+			goDowning = !goDowning
+		}
+		if goDowning {
+			pos += 1
+		}else {
+			pos -= 1
 		}
 	}
-	var result string
-	for _,v := range rs{
-		if v==0{
-			continue
-		}
-		result += string(v)
+	result := ""
+	for _,v := range arr{
+		result += v
 	}
 	return result
 }
@@ -70,6 +63,40 @@ func convert2(s string, numRows int) string {
 		for _,v := range arr[i]{
 			result += string(v)
 		}
+	}
+	return result
+}
+
+func convert3(s string, numRows int) string {
+	sLen := len(s)
+	if sLen<=numRows || numRows==1{
+		return s
+	}
+	n:=numRows
+	sessionLen := int(math.Ceil( float64(sLen)/float64(2*n-2) ))
+	var rs = make([]byte,sessionLen*2*(n-1))
+	for i:=0;i<sLen;i=i+2*n-2{
+		t:= i/(2*n-2)
+		rs[t]=s[i]
+		for j:=1;j<2*n-2;j++{
+			if (i+j)>=sLen{
+				break
+			}
+			if j < n-1 {
+				rs[2*t+sessionLen*(j*2-1)]=s[j+i]
+			}else if j==n-1{
+				rs[t+sessionLen*(j*2-1)]=s[j+i]
+			}else{
+				rs[2*t+sessionLen*(4*n-5-2*j)+1]=s[j+i]
+			}
+		}
+	}
+	var result string
+	for _,v := range rs{
+		if v==0{
+			continue
+		}
+		result += string(v)
 	}
 	return result
 }
