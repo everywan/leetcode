@@ -1,3 +1,5 @@
+package main
+
 // 看了官方 4ms 的解法, 学习了在 re==0 时作区分. 但是最后的结果仍不是4ms... 不知道为什么.. 难道是移位比16进制慢了? 懒得捣鼓了, 就这样吧
 func reverse(num int) int {
 	if num == 0 {
@@ -22,4 +24,3 @@ func reverse(num int) int {
 	}
 	return re
 }
-
