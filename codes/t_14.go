@@ -1,9 +1,8 @@
-package main
+package codes
 
-import "fmt"
-
-func main() {
-	fmt.Println(longestCommonPrefix([]string{"asd", "awfxc", "asdwec"}))
+// LongestCommonPrefix is 编写一个函数来查找字符串数组中的最长公共前缀。
+func LongestCommonPrefix(strs []string) string {
+	return longestCommonPrefix(strs)
 }
 
 func longestCommonPrefix(strs []string) string {

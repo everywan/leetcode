@@ -1,12 +1,13 @@
-package main
+package codes
 
 import (
 	"fmt"
 	"sort"
 )
 
-func main() {
-	fmt.Println(threeSum([]int{-4, -2, 1, -5, -4, -4, 4, -2, 0, 4, 0, -2, 3, 1, -5, 0}))
+// ThreeSum is 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
+func ThreeSum(nums []int) [][]int {
+	return threeSum(nums)
 }
 
 // 主要思路:
@@ -84,7 +85,8 @@ func threeSum(nums []int) [][]int {
 }
 
 // 主要思路和刚开始的相同, 不同的是 采用 双端快排 的思想, 固定 i 之后, 从两端依次变化 j/z
-func threeSum_Optimize(nums []int) [][]int {
+
+func threeSumOptimize(nums []int) [][]int {
 	_len := len(nums)
 	_nums := sort.IntSlice(nums)
 	_nums.Sort()

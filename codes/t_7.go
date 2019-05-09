@@ -1,6 +1,10 @@
-package main
+package codes
 
-// 看了官方 4ms 的解法, 学习了在 re==0 时作区分. 但是最后的结果仍不是4ms... 不知道为什么.. 难道是移位比16进制慢了? 懒得捣鼓了, 就这样吧
+// Reverse is 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。如 123 => 321
+func Reverse(num int) int {
+	return reverse(num)
+}
+
 func reverse(num int) int {
 	if num == 0 {
 		return 0
