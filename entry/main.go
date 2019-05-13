@@ -8,10 +8,14 @@ import (
 
 func main() {
 	s := new(solutions)
-	s.t15()
+	s.t4()
 }
 
 type solutions struct{}
+
+func (s *solutions) t4() {
+	codes.FindMedianSortedArrays()
+}
 
 func (s *solutions) t5() {
 	fmt.Println(codes.LongestPalindrome("cna"))
