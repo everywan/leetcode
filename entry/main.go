@@ -6,7 +6,7 @@ import (
 
 func main() {
 	s := new(solutions)
-	s.t15()
+	s.t8()
 }
 
 type solutions struct{}
