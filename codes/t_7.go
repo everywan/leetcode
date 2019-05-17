@@ -1,8 +1,10 @@
 package codes
 
+import "github.com/everywan/leetcode/codes/utils"
+
 // Reverse is 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。如 123 => 321
-func Reverse(num int) int {
-	return reverse(num)
+func Reverse() {
+	utils.ShouldEqual(reverse(123), 321)
 }
 
 func reverse(num int) int {

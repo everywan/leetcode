@@ -1,22 +1,19 @@
 package codes
 
-import "fmt"
+import (
+	"github.com/everywan/leetcode/codes/utils"
+)
 
 // FindMedianSortedArrays is 给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。
 // 请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。
 func FindMedianSortedArrays() {
-	var cases [][][]int
-	cases = append(cases, [][]int{[]int{1, 2}, []int{3, 4}})
-	cases = append(cases, [][]int{[]int{1}, []int{3, 4}})
-	cases = append(cases, [][]int{[]int{1, 3}, []int{2}})
-	cases = append(cases, [][]int{[]int{}, []int{1}})
-	cases = append(cases, [][]int{[]int{1}, []int{1}})
-	cases = append(cases, [][]int{[]int{}, []int{1}})
-	cases = append(cases, [][]int{[]int{2, 3, 4}, []int{1}})
-	cases = append(cases, [][]int{[]int{3}, []int{-2, -1}})
-	for i, cas := range cases {
-		fmt.Println(i, ":", cas, ":", arch1FindMedianSortedArrays(cas[0], cas[1]))
-	}
+	utils.ShouldEqual(findMedianSortedArrays([]int{1, 2}, []int{3, 4}), 2.5)
+	utils.ShouldEqual(findMedianSortedArrays([]int{1}, []int{3, 4}), 3)
+	utils.ShouldEqual(findMedianSortedArrays([]int{1, 3}, []int{2}), 2)
+	utils.ShouldEqual(findMedianSortedArrays([]int{}, []int{1}), 1)
+	utils.ShouldEqual(findMedianSortedArrays([]int{1}, []int{1}), 1)
+	utils.ShouldEqual(findMedianSortedArrays([]int{2, 3, 4}, []int{1}), 2.5)
+	utils.ShouldEqual(findMedianSortedArrays([]int{3}, []int{-2, -1}), -1)
 }
 
 // 两种思路:
@@ -105,9 +102,8 @@ func arch1FindMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 		}
 		if p {
 			return float64(_nums[mid]+_nums[mid+1]) / 2
-		} else {
-			return float64(_nums[mid+1])
 		}
+		return float64(_nums[mid+1])
 	}
 	if m == 1 && n == 1 {
 		return float64(nums1[0]+nums2[0]) / 2
