@@ -6,7 +6,7 @@ import (
 
 func main() {
 	s := new(solutions)
-	s.t8()
+	s.t19()
 }
 
 type solutions struct{}
@@ -35,6 +35,10 @@ func (s *solutions) t11() {
 	codes.MaxArea()
 }
 
+func (s *solutions) t12() {
+	codes.IntToRoman()
+}
+
 func (s *solutions) t14() {
 	codes.LongestCommonPrefix()
 }
@@ -45,4 +49,8 @@ func (s *solutions) t15() {
 
 func (s *solutions) t16() {
 	codes.ThreeSumClosest()
+}
+
+func (s *solutions) t19() {
+	codes.RemoveNthFromEnd()
 }
