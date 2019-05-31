@@ -1,13 +1,6 @@
-package codes
-
-import (
-	"github.com/everywan/leetcode/codes/utils"
-)
+package longestpalindrome
 
 // LongestPalindrome is 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
-func LongestPalindrome() {
-	utils.ShouldEqual(longestPalindrome("asds"), "sds")
-}
 
 // // 思路: 查找到每个字符所在的位置, 从最长距离依次查找
 // // 思路二应该比这个好, 至少表现上更直观. 详细见 t_5_2.go

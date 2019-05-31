@@ -1,15 +1,10 @@
-package codes
+package covert
 
 import (
 	"math"
-
-	"github.com/everywan/leetcode/codes/utils"
 )
 
 // Convert is  将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。
-func Convert() {
-	utils.ShouldEqual(convert("012345678", 3), "048135726")
-}
 
 // 借助方向变量比自己去判断省很多事, 代码也更清晰
 func convert(s string, numRows int) string {

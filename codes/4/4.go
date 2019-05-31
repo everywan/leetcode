@@ -1,26 +1,14 @@
-package codes
+package findmediansortedarrays
 
-import (
-	"github.com/everywan/leetcode/codes/utils"
-)
-
+// 题目
 // FindMedianSortedArrays is 给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。
 // 请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。
-func FindMedianSortedArrays() {
-	utils.ShouldEqual(findMedianSortedArrays([]int{1, 2}, []int{3, 4}), 2.5)
-	utils.ShouldEqual(findMedianSortedArrays([]int{1}, []int{3, 4}), 3)
-	utils.ShouldEqual(findMedianSortedArrays([]int{1, 3}, []int{2}), 2)
-	utils.ShouldEqual(findMedianSortedArrays([]int{}, []int{1}), 1)
-	utils.ShouldEqual(findMedianSortedArrays([]int{1}, []int{1}), 1)
-	utils.ShouldEqual(findMedianSortedArrays([]int{2, 3, 4}, []int{1}), 2.5)
-	utils.ShouldEqual(findMedianSortedArrays([]int{3}, []int{-2, -1}), -1)
-}
-
-// 两种思路:
-// 思路一: 循环找出前一半较少的数, 然后在这个位置找出中位数. 不过我用这种方法经常被坐标/位置搞混...
-// 思路二: 从两个数组的中位数出发, 依次向两边扩展
 
 /*
+两种思路:
+思路一: 循环找出前一半较少的数, 然后在这个位置找出中位数. 不过我用这种方法经常被坐标/位置搞混...
+思路二: 从两个数组的中位数出发, 依次向两边扩展
+
 思路一: 循环, 剔除前50小的数.
 循环比较 nums1[i] nums2[j], 保留数据最大和次大的数据(方法findMedianSortedArrays)
 

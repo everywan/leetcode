@@ -1,9 +1,7 @@
-package codes
+package inttoroman
 
 import (
 	"strings"
-
-	"github.com/everywan/leetcode/codes/utils"
 )
 
 const (
@@ -23,13 +21,6 @@ const (
 )
 
 // 这题太无聊了, 了解转换规则就需要很多时间... 不写了
-func IntToRoman() {
-	utils.ShouldEqual(intToRoman(1), RomanI)
-	utils.ShouldEqual(intToRoman(9), "IX")
-	utils.ShouldEqual(intToRoman(18), "XVIII")
-	utils.ShouldEqual(intToRoman(19), "IXX")
-	utils.ShouldEqual(intToRoman(1994), "MCMXCIV")
-}
 
 // 思路:
 // 1. 从最大到最小依次合并所有值, 如 9 == IIIIIIIII == VIIII

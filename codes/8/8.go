@@ -1,21 +1,6 @@
-package codes
-
-import (
-	"github.com/everywan/leetcode/codes/utils"
-)
+package myatoi
 
 // MyAtoi 实现一个 atoi 函数，使其能将字符串转换成整数
-func MyAtoi() {
-	utils.ShouldEqual(myAtoi("1"), 1)
-	utils.ShouldEqual(myAtoi("-1"), -1)
-	utils.ShouldEqual(myAtoi("   -1"), -1)
-	utils.ShouldEqual(myAtoi("123 12a"), 123)
-	utils.ShouldEqual(myAtoi("123 a"), 123)
-	utils.ShouldEqual(myAtoi("a 123"), 0)
-	utils.ShouldEqual(myAtoi("-2147483649"), -1*(1<<31))
-	utils.ShouldEqual(myAtoi("-91283472332"), -2147483648)
-	utils.ShouldEqual(myAtoi("2147483800"), 2147483647)
-}
 
 // 陷于特殊情况的判断, 无法自拔
 // 忙于特殊情况的判断, 一点也不好玩

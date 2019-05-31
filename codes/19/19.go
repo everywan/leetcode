@@ -1,21 +1,7 @@
-package codes
-
-import "fmt"
+package removenthfromend
 
 // 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
 // 尝试使用一趟扫描实现
-func RemoveNthFromEnd() {
-	h := &ListNode{Val: 1, Next: nil}
-	h.Next = &ListNode{Val: 2, Next: nil}
-	h.Next.Next = &ListNode{Val: 3, Next: nil}
-	h.Next.Next.Next = &ListNode{Val: 4, Next: nil}
-	h.Next.Next.Next.Next = &ListNode{Val: 5, Next: nil}
-	t := removeNthFromEnd(h, 2)
-	for t != nil {
-		fmt.Println(t.Val)
-		t = t.Next
-	}
-}
 
 // Definition for singly-linked list.
 type ListNode struct {

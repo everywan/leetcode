@@ -1,11 +1,6 @@
-package codes
-
-import "github.com/everywan/leetcode/codes/utils"
+package longestcommonprefix
 
 // LongestCommonPrefix is 编写一个函数来查找字符串数组中的最长公共前缀。
-func LongestCommonPrefix() {
-	utils.ShouldEqual(longestCommonPrefix([]string{"asd", "awfxc", "asdwec"}), "a")
-}
 
 func longestCommonPrefix(strs []string) string {
 	if len(strs) == 0 {

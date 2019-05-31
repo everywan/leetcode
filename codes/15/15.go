@@ -1,17 +1,11 @@
-package codes
+package threesum
 
 import (
 	"fmt"
 	"sort"
-
-	"github.com/everywan/leetcode/codes/utils"
 )
 
 // ThreeSum is 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
-func ThreeSum() {
-	expected := [][]int{[]int{0, 0, 0}, []int{-5, 4, 1}, []int{-4, 4, 0}, []int{-4, 3, 1}, []int{-2, 4, -2}, []int{-2, 1, 1}}
-	utils.ShouldResemble(threeSum([]int{-4, -2, 1, -5, -4, -4, 4, -2, 0, 4, 0, -2, 3, 1, -5, 0}), expected)
-}
 
 // 主要思路:
 // 1. 排序
