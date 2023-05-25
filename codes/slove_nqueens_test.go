@@ -1,13 +1,15 @@
 package codes
 
 import (
+	"fmt"
 	"testing"
 
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func Test_threeSum(t *testing.T) {
+func Test_sloveNQueens(t *testing.T) {
 	Convey("passed", t, func() {
-		So(threeSum([]int{1, 1, -2}), ShouldResemble, []int{1, 1, -2})
+		fmt.Println(solveNQueens(4))
+		fmt.Println(solveNQueens(5))
 	})
 }

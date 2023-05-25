@@ -6,8 +6,8 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func Test_threeSum(t *testing.T) {
+func Test_xorQueries(t *testing.T) {
 	Convey("passed", t, func() {
-		So(threeSum([]int{1, 1, -2}), ShouldResemble, []int{1, 1, -2})
+		So(xorOperation(5, 0), ShouldEqual, 8)
 	})
 }

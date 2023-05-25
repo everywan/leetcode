@@ -6,8 +6,10 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func Test_threeSum(t *testing.T) {
+func Test_rand10(t *testing.T) {
 	Convey("passed", t, func() {
-		So(threeSum([]int{1, 1, -2}), ShouldResemble, []int{1, 1, -2})
+		for i := 0; i < 20; i++ {
+			t.Log(rand10())
+		}
 	})
 }

@@ -7,18 +7,48 @@ import (
 
 // ThreeSum is 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
 
-// 主要思路:
-// 1. 排序
-// 2. 从一端开始遍历
-// 3. 从两端各取一个值, 比较 三者之和与0, 从而确定下次移动哪一个游标
-
-// 两个方法中, 都对某些特殊情况做了处理, 如 [0,0,0], [1,2,3]等
-
-// 不同数据集下步骤三采取不同的策略会有不同的影响.
-// 当分布比较均匀时, 采取两端依次渐进较好(见后续的优化方法)
-// 当 n[i]+n[z]<0 时, 采用第一种方法, 固定iz, j 从大端依次递减更好
-
+// 排序+双指针
+// 这个题蛋疼的是去除重复元素.
 func threeSum(nums []int) [][]int {
+	if len(nums) < 3 {
+		return nil
+	}
+	_nums := sort.IntSlice(nums)
+	_nums.Sort()
+	res := [][]int{}
+	for i := range _nums {
+		if i != 0 && _nums[i] == _nums[i-1] {
+			continue
+		}
+		left, right := i+1, len(_nums)-1
+		for left < right {
+			sum := _nums[right] + _nums[i] + _nums[left]
+			if sum < 0 {
+				left++
+			} else if sum > 0 {
+				right--
+			} else {
+				res = append(res, []int{_nums[i], _nums[left], _nums[right]})
+				for left < right {
+					if _nums[left] == _nums[left+1] {
+						left++
+						continue
+					}
+					if _nums[right] == _nums[right-1] {
+						right--
+						continue
+					}
+					left++
+					right--
+					break
+				}
+			}
+		}
+	}
+	return res
+}
+
+func threeSum2(nums []int) [][]int {
 	_len := len(nums)
 	if _len < 3 {
 		return nil
