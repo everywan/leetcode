@@ -20,6 +20,7 @@ func permute(nums []int) [][]int {
 			continue
 		}
 		prev = m
+		// todo 这里可以通过 替换-执行-回填 的方式优化空间
 		inNew := permuteDeepcopy(nums, i)
 		for _, arrItem := range permute(inNew) {
 			result = append(result, append([]int{m}, arrItem...))
