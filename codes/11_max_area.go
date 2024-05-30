@@ -6,6 +6,8 @@ package codes
 返回容器可以储存的最大水量。
 */
 
+// tag: 非最佳解法
+// 备注: 有一个很奇妙的贪心算法, 需要你想到规律
 // 2024-05-30 start: 20:53 end: 21:09
 func maxArea(height []int) int {
 	maxValue := 0
