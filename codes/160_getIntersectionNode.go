@@ -6,6 +6,7 @@ package codes
 如果两个链表不存在相交节点，返回 null 。
 */
 
+// tag: 非最佳解法
 // 2024-05-31 start: 18:59 end:19:18
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	set := map[*ListNode]struct{}{}
@@ -32,4 +33,24 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 // type ListNode struct {
 // 	Val  int
 // 	Next *ListNode
+// }
+
+// 最佳思路解法
+// func getIntersectionNode2(headA, headB *ListNode) *ListNode {
+// 	firstA, firstB := headA, headB
+// 	for {
+// 		if headA == headB {
+// 			return headA
+// 		}
+// 		if headA != nil {
+// 			headA = headA.Next
+// 		} else {
+// 			headA = firstB
+// 		}
+// 		if headB != nil {
+// 			headB = headB.Next
+// 		} else {
+// 			headB = firstA
+// 		}
+// 	}
 // }
