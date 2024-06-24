@@ -17,40 +17,37 @@ https://leetcode.cn/problems/add-two-numbers/?favorite=2ckc81c
  *     Next *ListNode
  * }
  */
-// 如果 l1/l2 符合条件, 是否可以直接返回 l1/l2? 涉及到原值更改的问题
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	if l1 == nil {
-		return l2
-	}
-	if l2 == nil {
-		return l1
-	}
-	start := &ListNode{}
-	result := start
-	round := 0
+	head := &ListNode{}
+	curr := head
+	bit := 0
 	for {
-		if l1 == nil && l2 == nil && round == 0 {
-			break
-		}
-		if round > 0 {
-			result.Val += round
-			round = 0
-		}
+		val := bit
 		if l1 != nil {
-			result.Val += l1.Val
+			val += l1.Val
 			l1 = l1.Next
 		}
 		if l2 != nil {
-			result.Val += l2.Val
+			val += l2.Val
 			l2 = l2.Next
 		}
-		if result.Val > 9 {
-			result.Val %= 10
-			round = 1
+		if val >= 10 {
+			bit = 1
+			val -= 10
+		} else {
+			bit = 0
 		}
-		println(result.Val)
-		result.Next = &ListNode{}
-		result = result.Next
+		curr.Val = val
+		if l1 == nil && l2 == nil {
+			break
+		}
+		curr.Next = &ListNode{}
+		curr = curr.Next
 	}
-	return start
+	if bit > 0 {
+		curr.Next = &ListNode{}
+		curr = curr.Next
+		curr.Val = bit
+	}
+	return head
 }
