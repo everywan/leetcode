@@ -8,13 +8,13 @@ import (
 
 func Test_lengthOfLongestSubstring(t *testing.T) {
 	Convey("passed", t, func() {
-		So(lengthOfLongestSubstring("a"), ShouldEqual, 1)
-		So(lengthOfLongestSubstring("aa"), ShouldEqual, 1)
-		So(lengthOfLongestSubstring("aba"), ShouldEqual, 2)
-		So(lengthOfLongestSubstring("abcabcbb"), ShouldEqual, 3)
-		So(lengthOfLongestSubstring("au"), ShouldEqual, 2)
-		So(lengthOfLongestSubstring("aab"), ShouldEqual, 2)
-		So(lengthOfLongestSubstring("dvdf"), ShouldEqual, 3)
-		So(lengthOfLongestSubstring("pwwkew"), ShouldEqual, 3)
+		So(lengthOfLongestSubstringV2("a"), ShouldEqual, 1)
+		So(lengthOfLongestSubstringV2("aa"), ShouldEqual, 1)
+		So(lengthOfLongestSubstringV2("aba"), ShouldEqual, 2)
+		So(lengthOfLongestSubstringV2("abcabcbb"), ShouldEqual, 3)
+		So(lengthOfLongestSubstringV2("au"), ShouldEqual, 2)
+		So(lengthOfLongestSubstringV2("aab"), ShouldEqual, 2)
+		So(lengthOfLongestSubstringV2("dvdf"), ShouldEqual, 3)
+		So(lengthOfLongestSubstringV2("pwwkew"), ShouldEqual, 3)
 	})
 }

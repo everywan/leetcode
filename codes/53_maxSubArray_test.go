@@ -11,5 +11,6 @@ func Test_maxSubArray(t *testing.T) {
 		So(maxSubArray([]int{-2, 1, -3, 4, -1, 2, 1, -5, 4}), ShouldEqual, 6)
 		So(maxSubArray([]int{-2, 1}), ShouldEqual, 1)
 		So(maxSubArray([]int{-1, 0, -2}), ShouldEqual, 0)
+		So(maxSubArray([]int{-2, -1}), ShouldEqual, -1)
 	})
 }

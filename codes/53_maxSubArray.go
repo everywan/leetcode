@@ -11,8 +11,26 @@ package codes
 解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。
 */
 
-// 2024-06-24 start: 19:11 end:20:32
+// 2024-07-03 start: 19:28 end:19:33
 func maxSubArray(nums []int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+	max := nums[0]
+	// 贪心思想
+	for i := 1; i < len(nums); i++ {
+		if nums[i]+nums[i-1] > nums[i] {
+			nums[i] = nums[i] + nums[i-1]
+		}
+		if nums[i] > max {
+			max = nums[i]
+		}
+	}
+	return max
+}
+
+// 2024-06-24 start: 19:11 end:20:32
+func maxSubArray2(nums []int) int {
 	return maxSubArray_dfs(nums[1:], nums[0])
 }
 

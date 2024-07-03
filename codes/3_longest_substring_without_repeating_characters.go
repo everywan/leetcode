@@ -34,3 +34,32 @@ func lengthOfLongestSubstring(s string) int {
 	}
 	return maxLen
 }
+
+// 滑动窗口解法
+func lengthOfLongestSubstringV2(s string) int {
+	maxLen := 0
+	set := [256]*struct{}{}
+	l, r := 0, 0 // 滑动窗口左右位置
+	for r < len(s) {
+		for ; r < len(s); r++ {
+			if set[s[r]] == nil {
+				set[s[r]] = &struct{}{}
+				continue
+			}
+			// 有重复值时, 移动左指针到重复地点
+			for ; l < r; l++ {
+				if set[s[l]] == set[s[r]] {
+					break
+				}
+				set[s[l]] = nil
+			}
+			break
+		}
+		if maxLen < r-l {
+			maxLen = r - l
+		}
+		set[s[l]] = nil
+		l++
+	}
+	return maxLen
+}
